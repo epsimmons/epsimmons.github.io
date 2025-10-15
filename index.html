@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>E.P. Simmons | Portfolio</title>
 
   <!-- Google tag (gtag.js) -->
@@ -15,16 +15,27 @@
   </script>
 
   <style>
+    :root{
+      --red: rgba(204,0,0,0.75);
+      --red-solid: #cc0000;
+      --red-dark: #a30000;
+      --text: #222;
+      --muted: #555;
+      --bg: #f5f5f7;
+      --card: #fff;
+    }
+
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
-      background-color: #f5f5f7;
-      color: #222;
+      background-color: var(--bg);
+      color: var(--text);
       scroll-behavior: smooth;
       overflow-x: hidden;
     }
 
-    /* --- TRANSLUCENT NAV BAR --- */
+    /* --- TRANSLUCENT, FIXED NAV --- */
     nav {
       position: fixed;
       top: 0;
@@ -34,134 +45,124 @@
       gap: 30px;
       padding: 12px 0;
       backdrop-filter: blur(10px);
-      background-color: rgba(204, 0, 0, 0.75);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      background-color: var(--red);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       z-index: 1000;
     }
-
     nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
       font-weight: bold;
       font-size: 1rem;
       letter-spacing: 0.5px;
-      transition: color 0.2s, border-bottom 0.2s;
       border-bottom: 3px solid transparent;
       padding-bottom: 4px;
+      transition: border-color .2s;
     }
+    nav a:hover { text-decoration: underline; }
+    nav a.active { border-bottom-color: #fff; }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    nav a.active {
-      border-bottom: 3px solid white;
-    }
-
-    /* --- HEADER (BIO SECTION) --- */
+    /* --- HEADER (BIO) --- */
     header {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 160px 20px 80px;
-      background-color: #fff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
-      animation: fadeIn 1.2s ease-in-out;
+      padding: 160px 20px 80px; /* space for fixed nav */
+      background: var(--card);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       margin-top: 48px;
+      animation: fadeIn 1.1s ease-in-out;
     }
-
     header img {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
+      width: 280px;
+      max-width: 88vw;
+      height: auto;            /* rectangular portrait (no circle crop) */
+      border-radius: 0;        /* keep crisp rectangle */
       object-fit: cover;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       margin-bottom: 20px;
-      transition: transform 0.3s ease;
+      transition: transform .25s ease;
     }
-
-    header img:hover {
-      transform: scale(1.03);
-    }
+    header img:hover { transform: scale(1.01); }
 
     header h1 {
       margin: 0;
-      font-size: 2rem;
-      color: #222;
+      font-size: 2.1rem;
+      color: var(--text);
     }
-
     header h2 {
       margin: 10px 0 15px;
       font-weight: normal;
-      color: #555;
+      color: var(--muted);
     }
-
     header p {
       max-width: 700px;
       color: #444;
-      font-size: 1.1rem;
+      font-size: 1.06rem;
     }
 
     /* --- SECTIONS --- */
     section {
       opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      transform: translateY(36px);
+      transition: opacity .75s ease-out, transform .75s ease-out;
       padding: 80px 20px;
       max-width: 900px;
-      margin: 0 auto;
-      background-color: #fff;
+      margin: 40px auto 0;
+      background: var(--card);
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      border-radius: 8px;
-      margin-top: 40px;
+      border-radius: 10px;
     }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    section.visible { opacity: 1; transform: translateY(0); }
 
     h3 {
-      color: #cc0000;
-      margin-top: 0;
+      color: var(--red-solid);
+      margin: 0 0 16px 0;
       text-align: center;
+      font-size: 1.4rem;
     }
 
-    a.button {
+    .button {
       display: inline-block;
-      background-color: #cc0000;
-      color: white;
+      background: var(--red-solid);
+      color: #fff;
       padding: 10px 20px;
+      border-radius: 8px;
       text-decoration: none;
-      border-radius: 6px;
-      margin-top: 20px;
-      font-weight: bold;
-      transition: background-color 0.2s, transform 0.2s;
+      font-weight: 700;
+      transition: background .2s, transform .2s;
     }
+    .button:hover { background: var(--red-dark); transform: translateY(-2px); }
 
-    a.button:hover {
-      background-color: #a30000;
-      transform: translateY(-2px);
+    .actions { text-align: center; margin-top: 20px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* PDF preview frames (no toolbar) */
+    .pdf-frame {
+      width: 100%;
+      height: 900px;
+      border: 1px solid #e5e5e7;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      overflow: hidden;
     }
 
     footer {
       text-align: center;
-      padding: 50px 0;
+      padding: 50px 0 70px;
       color: #777;
       font-size: 0.9rem;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(-14px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <!-- NAVIGATION BAR -->
+  <!-- NAV -->
   <nav>
     <a href="#home" class="nav-link active">Home</a>
     <a href="#resume" class="nav-link">Resume</a>
@@ -169,44 +170,74 @@
     <a href="#contact" class="nav-link">Contact</a>
   </nav>
 
-  <!-- HEADER (BIO SECTION) -->
+  <!-- HEADER -->
   <header id="home">
-    <img src="headshot.jpg" alt="E.P. Simmons headshot">
-    <h1><!-- Your Name Here --></h1>
-    <h2><!-- Your Title or Tagline Here --></h2>
-    <p><!-- Short introduction or summary paragraph here. --></p>
+    <img src="headshot.jpg" alt="Portrait of E.P. Simmons">
+    <h1>E.P. Simmons</h1>
+    <h2><!-- Your title or tagline here --></h2>
+    <p><!-- Short introduction paragraph here. --></p>
   </header>
 
-  <!-- RESUME SECTION -->
+  <!-- RESUME -->
   <section id="resume">
     <h3>Resume</h3>
-    <p><!-- Add your resume summary or description here. --></p>
-    <div style="text-align:center;">
-      <a href="EP_Simmons_Resume.pdf" class="button" target="_blank">View Résumé (PDF)</a>
-      <a href="EP_Simmons_Resume.pdf" class="button" download>Download Résumé</a>
+    <p><!-- Optional: add a brief note about your resume here. --></p>
+
+    <!-- Inline PDF preview without viewer controls -->
+    <div class="pdf-frame" aria-label="Resume preview">
+      <!-- Many browsers respect these params; some may still show minimal chrome. -->
+      <iframe
+        src="EP_Simmons_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=page-width"
+        title="Resume PDF"
+        width="100%"
+        height="100%"
+        style="border:0;"
+      ></iframe>
+    </div>
+
+    <div class="actions">
+      <a class="button" href="EP_Simmons_Resume.pdf" target="_blank" rel="noopener">Open PDF</a>
+      <a class="button" href="EP_Simmons_Resume.pdf" download>Download PDF</a>
     </div>
   </section>
 
-  <!-- PORTFOLIO SECTION -->
+  <!-- PORTFOLIO -->
   <section id="portfolio">
     <h3>Portfolio</h3>
-    <p><!-- Add details about your projects here. --></p>
+    <p><!-- Add a sentence or two to introduce your portfolio. Replace the placeholder preview below with your project document later. --></p>
+
+    <!-- Placeholder document preview (using resume for now) -->
+    <div class="pdf-frame" aria-label="Portfolio document preview (placeholder)">
+      <iframe
+        src="EP_Simmons_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=page-width"
+        title="Portfolio Document"
+        width="100%"
+        height="100%"
+        style="border:0;"
+      ></iframe>
+    </div>
+
+    <div class="actions">
+      <a class="button" href="projects.html">View Full Projects Page</a>
+    </div>
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT -->
   <section id="contact">
     <h3>Contact</h3>
-    <p><!-- Add your contact information or a short message here. --></p>
     <p style="text-align:center;">
-      📧 <a href="mailto:ep@epsimmons.com">ep@epsimmons.com</a><br>
-      🔗 <a href="https://www.linkedin.com" target="_blank">LinkedIn Profile</a>
+      <!-- Optional: short message here -->
+    </p>
+    <p style="text-align:center;">
+      📧 <a href="mailto:epsimmons14@gmail.com">epsimmons14@gmail.com</a><br/>
+      🔗 <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn Profile</a>
     </p>
   </section>
 
   <footer>© 2025 E.P. Simmons</footer>
 
   <script>
-    // Highlight active section in navbar
+    // Active link highlight
     const sections = document.querySelectorAll("section, header");
     const navLinks = document.querySelectorAll(".nav-link");
 
@@ -233,18 +264,14 @@
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // Fade-in sections when they appear in view
+    // Fade-in on enter
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
+        if (entry.isIntersecting) entry.target.classList.add("visible");
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll("section").forEach(section => {
-      observer.observe(section);
-    });
+    document.querySelectorAll("section").forEach(sec => observer.observe(sec));
   </script>
 </body>
 </html>
