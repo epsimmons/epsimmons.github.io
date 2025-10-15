@@ -1,136 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E.P. Simmons | Portfolio</title>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-98HRN2HF4R"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-98HRN2HF4R');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-98HRN2HF4R');
   </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>E.P. Simmons | Portfolio</title>
+
   <style>
     body {
       margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
       background-color: #f5f5f7;
       color: #222;
-      line-height: 1.6;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
-    header {
-      background-color: #cc0000; /* University of Utah red */
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    /* --- TRANSLUCENT NAV BAR --- */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 12px 0;
+      backdrop-filter: blur(10px);
+      background-color: rgba(204, 0, 0, 0.75);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
     }
 
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
       font-weight: bold;
+      font-size: 1rem;
       letter-spacing: 0.5px;
+      transition: color 0.2s, border-bottom 0.2s;
+      border-bottom: 3px solid transparent;
+      padding-bottom: 4px;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
-    .intro {
+    nav a.active {
+      border-bottom: 3px solid white;
+    }
+
+    /* --- HEADER (BIO SECTION) --- */
+    header {
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
+      padding: 160px 20px 80px;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       text-align: center;
-      padding: 60px 20px;
+      animation: fadeIn 1.2s ease-in-out;
+      margin-top: 48px;
     }
 
-    .intro img {
+    header img {
       width: 180px;
       height: 180px;
       border-radius: 50%;
       object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       margin-bottom: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
 
-    .intro h1 {
+    header img:hover {
+      transform: scale(1.03);
+    }
+
+    header h1 {
+      margin: 0;
       font-size: 2rem;
-      margin-bottom: 10px;
+      color: #222;
     }
 
-    .intro h2 {
+    header h2 {
+      margin: 10px 0 15px;
       font-weight: normal;
       color: #555;
-      margin-bottom: 25px;
     }
 
-    .intro p {
+    header p {
       max-width: 700px;
+      color: #444;
       font-size: 1.1rem;
     }
 
-    .buttons {
-      margin-top: 30px;
+    /* --- SECTIONS --- */
+    section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      padding: 80px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      margin-top: 40px;
     }
 
-    .buttons a {
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h3 {
+      color: #cc0000;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    a.button {
       display: inline-block;
       background-color: #cc0000;
       color: white;
       padding: 10px 20px;
       text-decoration: none;
       border-radius: 6px;
-      margin: 5px;
-      transition: background-color 0.2s;
+      margin-top: 20px;
+      font-weight: bold;
+      transition: background-color 0.2s, transform 0.2s;
     }
 
-    .buttons a:hover {
+    a.button:hover {
       background-color: #a30000;
+      transform: translateY(-2px);
     }
 
-    @media (min-width: 768px) {
-      .intro {
-        flex-direction: row;
-        justify-content: center;
-        text-align: left;
-      }
+    footer {
+      text-align: center;
+      padding: 50px 0;
+      color: #777;
+      font-size: 0.9rem;
+    }
 
-      .intro img {
-        margin-right: 40px;
-      }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/projects.html">Projects</a>
-      <a href="/resume.html">Resume</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <a href="#home" class="nav-link active">Home</a>
+    <a href="#resume" class="nav-link">Resume</a>
+    <a href="#portfolio" class="nav-link">Portfolio</a>
+    <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+
+  <!-- HEADER (BIO SECTION) -->
+  <header id="home">
+    <img src="headshot.jpg" alt="E.P. Simmons headshot">
+    <h1><!-- Your Name Here --></h1>
+    <h2><!-- Your Title or Tagline Here --></h2>
+    <p><!-- Short introduction or summary paragraph here. --></p>
   </header>
 
-  <section class="intro">
-    <img src="headshot.jpg" alt="E.P. Simmons headshot">
-    <div>
-      <h1>E.P. Simmons</h1>
-      <h2>Mechanical Engineering Student</h2>
-      <p>
-        I’m a Mechanical Engineering student at the University of Utah with a passion for design and aerospace.
-        This site highlights my academic, professional, and creative projects.
-      </p>
-      <div class="buttons">
-        <a href="/projects.html">View Projects</a>
-        <a href="/resume.html">View Resume</a>
-      </div>
+  <!-- RESUME SECTION -->
+  <section id="resume">
+    <h3>Resume</h3>
+    <p><!-- Add your resume summary or description here. --></p>
+    <div style="text-align:center;">
+      <a href="EP_Simmons_Resume.pdf" class="button" target="_blank">View Résumé (PDF)</a>
+      <a href="EP_Simmons_Resume.pdf" class="button" download>Download Résumé</a>
     </div>
   </section>
+
+  <!-- PORTFOLIO SECTION -->
+  <section id="portfolio">
+    <h3>Portfolio</h3>
+    <p><!-- Add details about your projects here. --></p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <h3>Contact</h3>
+    <p><!-- Add your contact information or a short message here. --></p>
+    <p style="text-align:center;">
+      📧 <a href="mailto:ep@epsimmons.com">ep@epsimmons.com</a><br>
+      🔗 <a href="https://www.linkedin.com" target="_blank">LinkedIn Profile</a>
+    </p>
+  </section>
+
+  <footer>© 2025 E.P. Simmons</footer>
+
+  <script>
+    // Highlight active section in navbar
+    const sections = document.querySelectorAll("section, header");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 200;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    });
+
+    // Smooth scroll to top for "Home"
+    document.querySelector('a[href="#home"]').addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Fade-in sections when they appear in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll("section").forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
