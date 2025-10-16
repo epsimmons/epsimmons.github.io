@@ -40,7 +40,6 @@
       line-height: 1.6;
       scroll-behavior: smooth;
       overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
     }
 
     /* --- NAV --- */
@@ -65,7 +64,6 @@
       text-decoration: none;
       font-weight: 500;
       font-size: 0.95rem;
-      letter-spacing: -0.01em;
       position: relative;
       transition: color 0.2s ease;
     }
@@ -105,35 +103,11 @@
       box-shadow: 0 8px 32px rgba(37, 99, 235, 0.12);
       margin-bottom: 32px;
       border: 4px solid white;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    header img:hover {
-      transform: scale(1.02);
-      box-shadow: 0 12px 48px rgba(37, 99, 235, 0.16);
-    }
-
-    header h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 12px;
-    }
-
-    header h2 {
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: var(--text-light);
-      margin-bottom: 24px;
-    }
-
-    header p {
-      max-width: 640px;
-      color: var(--text-light);
-      font-size: 1.1rem;
-      line-height: 1.7;
-      font-weight: 400;
-    }
+    header h1 { font-size: 3rem; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+    header h2 { font-size: 1.5rem; font-weight: 400; color: var(--text-light); margin-bottom: 24px; }
+    header p { max-width: 640px; color: var(--text-light); font-size: 1.1rem; line-height: 1.7; }
 
     /* --- SECTIONS --- */
     section {
@@ -161,10 +135,24 @@
       font-size: 1.1rem;
       margin-bottom: 48px;
       max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-inline: auto;
     }
 
+    .pdf-frame {
+      width: 100%;
+      height: 600px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px var(--shadow);
+      background: var(--bg-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* --- CONTACT BUTTONS --- */
     .contact-buttons {
       display: flex;
       flex-direction: column;
@@ -193,22 +181,10 @@
       box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
     }
 
-    .email-button:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
-    }
-
     .phone-button {
       background: #10b981;
       color: white;
       box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
-    }
-
-    .phone-button:hover {
-      background: #0d966c;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(13, 150, 108, 0.3);
     }
 
     .linkedin-button {
@@ -217,23 +193,17 @@
       box-shadow: 0 4px 12px rgba(0, 119, 181, 0.2);
     }
 
-    .linkedin-button:hover {
-      background: #005885;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 119, 181, 0.3);
-    }
-
     .handshake-button {
       background: #D2FA4B;
       color: #06363A;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
-    .handshake-button:hover {
-      background: #C4EC3C;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-    }
+    .contact-button:hover { transform: translateY(-2px); }
+    .email-button:hover { background: #1e40af; }
+    .phone-button:hover { background: #0d966c; }
+    .linkedin-button:hover { background: #005885; }
+    .handshake-button:hover { background: #C4EC3C; }
 
     footer { padding: 60px 0; }
 
@@ -248,6 +218,7 @@
   <nav>
     <a href="#home" class="nav-link active">Home</a>
     <a href="#resume" class="nav-link">Resume</a>
+    <a href="#portfolio" class="nav-link">Portfolio</a>
     <a href="#contact" class="nav-link">Contact</a>
   </nav>
 
@@ -256,38 +227,81 @@
     <div class="placeholder-img">Your Photo</div>
     <h1>E.P. Simmons</h1>
     <h2>Your Professional Title</h2>
-    <p>Add your brief introduction paragraph here. This is where you can share your background, expertise, and what makes you unique.</p>
+    <p>This is your brief introduction paragraph — highlight your background, expertise, and what makes you unique.</p>
   </header>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <h3>Resume</h3>
+    <div class="pdf-frame">[Your Resume PDF will display here]</div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <h3>Portfolio</h3>
+    <div class="pdf-frame">[Your Portfolio Document will display here]</div>
+  </section>
 
   <!-- CONTACT -->
   <section id="contact">
     <h3>Get In Touch</h3>
     <div class="contact-buttons">
-      <a href="mailto:epsimmons14@gmail.com" class="contact-button email-button">
-        ✉️ epsimmons14@gmail.com
-      </a>
-
-      <a href="tel:+18018194914" class="contact-button phone-button">
-        📞 (801) 819-4914
-      </a>
-
-      <a href="https://www.linkedin.com/in/epsimmons" target="_blank" rel="noopener" class="contact-button linkedin-button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+      <a href="mailto:epsimmons14@gmail.com" class="contact-button email-button">✉️ epsimmons14@gmail.com</a>
+      <a href="tel:+18018194914" class="contact-button phone-button">📞 (801) 819-4914</a>
+      <a href="https://www.linkedin.com/in/epsimmons" target="_blank" class="contact-button linkedin-button">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 
+5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 
+0-1.75-.79-1.75-1.764s.784-1.764 
+1.75-1.764 1.75.79 1.75 
+1.764-.783 1.764-1.75 
+1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 
+0v5.604h-3v-11h3v1.765c1.396-2.586 
+7-2.777 7 2.476v6.759z"/>
         </svg>
         Connect on LinkedIn
       </a>
-
-      <a href="https://app.joinhandshake.com/profiles/epsimmons" target="_blank" rel="noopener" class="contact-button handshake-button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="26" height="26" aria-label="Handshake logo">
+      <a href="https://app.joinhandshake.com/profiles/epsimmons" target="_blank" class="contact-button handshake-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="28" height="28">
           <rect width="256" height="256" rx="40" fill="#D2FA4B"/>
           <g transform="translate(0,256) scale(0.1,-0.1)" fill="#06363A" stroke="none">
-            <path d="M995 2038 c-2 -7 -63 -350 -135 -763 -73 -412 -134 -753 -136 -757 -3 -5 62 -8 144 -8 l148 0 23 128 c12 70 29 166 38 213 l15 87 145 118 c79 66 148 120 152 122 4 1 -16 -129 -45 -290 -29 -161 -55 -312 -59 -335 l-6 -43 144 0 144 0 32 183 c18 100 79 443 135 762 57 319 101 583 99 588 -2 4 -66 7 -143 7 -101 0 -139 -3 -142 -12 -3 -7 -27 -139 -53 -293 l-49 -280 -150 -122 c-83 -67 -151 -121 -152 -120 -1 1 31 185 70 410 40 224 70 410 68 412 -3 3 -68 5 -144 5 -102 0 -140 -3 -143 -12z"/>
+            <path d="M995 2038 c-2 -7 -63 -350 -135 -763 -73 -412 -134 -753 -136 -757 
+-3 -5 62 -8 144 -8 l148 0 23 128 c12 70 29 166 38 213 l15 87 145 118 c79 
+66 148 120 152 122 4 1 -16 -129 -45 -290 -29 -161 -55 -312 -59 -335 l-6 -43 
+144 0 144 0 32 183 c18 100 79 443 135 762 57 319 101 583 99 588 -2 4 -66 7 
+-143 7 -101 0 -139 -3 -142 -12 -3 -7 -27 -139 -53 -293 l-49 -280 -150 -122 
+c-83 -67 -151 -121 -152 -120 -1 1 31 185 70 410 40 224 70 410 68 412 -3 3 
+-68 5 -144 5 -102 0 -140 -3 -143 -12z"/>
           </g>
         </svg>
         View My Handshake Profile
       </a>
     </div>
   </section>
+
+  <footer></footer>
+
+  <script>
+    const sections = document.querySelectorAll("section, header");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    window.addEventListener("scroll", () => {
+      let current = "";
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop - 200;
+        if (pageYOffset >= sectionTop) current = section.getAttribute("id");
+      });
+      navLinks.forEach((link) => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) link.classList.add("active");
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll("section").forEach(sec => observer.observe(sec));
+  </script>
 </body>
 </html>
