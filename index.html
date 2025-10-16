@@ -75,6 +75,15 @@
       background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg) 100%);
       margin-top: 64px;
     }
+    header img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 32px;
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.12);
+      border: 4px solid white;
+    }
     header h1 { font-size: 3rem; font-weight: 700; margin-bottom: 12px; }
     header h2 { font-size: 1.5rem; color: var(--text-light); margin-bottom: 24px; }
     header p { max-width: 640px; color: var(--text-light); font-size: 1.1rem; }
@@ -109,6 +118,13 @@
       justify-content: center;
       color: var(--text-light);
       font-style: italic;
+    }
+
+    .pdf-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 12px;
     }
 
     /* CONTACT BUTTONS */
@@ -188,16 +204,18 @@
 
   <!-- HEADER -->
   <header id="home">
-    <div class="placeholder-img" style="background:#e2e8f0;width:200px;height:200px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#475569;margin-bottom:32px;">Your Photo</div>
+    <img src="headshot.jpg" alt="E.P. Simmons Headshot" />
     <h1>E.P. Simmons</h1>
-    <h2>Your Professional Title</h2>
-    <p>This is your brief introduction paragraph — highlight your background, expertise, and what makes you unique.</p>
+    <h2>Mechanical Engineering Student</h2>
+    <p>Welcome! I’m a mechanical engineering student at the University of Utah passionate about design, innovation, and technology. Explore my resume and portfolio below.</p>
   </header>
 
   <!-- RESUME -->
   <section id="resume">
     <h3>Resume</h3>
-    <div class="pdf-frame">[Your Resume PDF will display here]</div>
+    <div class="pdf-frame">
+      <iframe src="EP_Simmons_Resume.pdf#toolbar=0" title="E.P. Simmons Resume PDF"></iframe>
+    </div>
   </section>
 
   <!-- PORTFOLIO -->
