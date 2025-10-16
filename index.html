@@ -251,18 +251,6 @@
       box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
     }
     
-    .phone-button {
-      background: #10b981;
-      color: white;
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
-    }
-    
-    .phone-button:hover {
-      background: #059669;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
-    }
-    
     .linkedin-button {
       background: #0077b5;
       color: white;
@@ -273,19 +261,6 @@
       background: #005885;
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0, 119, 181, 0.3);
-    }
-    
-    .handshake-button {
-      background: #f6b917;
-      color: #1a1a1a;
-      box-shadow: 0 4px 12px rgba(246, 185, 23, 0.3);
-      font-weight: 700;
-    }
-    
-    .handshake-button:hover {
-      background: #e0a812;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(246, 185, 23, 0.4);
     }
 
     footer {
@@ -332,7 +307,7 @@
 
   <!-- HEADER -->
   <header id="home">
-    <img src="headshot.jpg" alt="Portrait of E.P. Simmons">
+    <div class="placeholder-img">Your Photo</div>
     <h1>E.P. Simmons</h1>
     <h2>Your Professional Title</h2>
     <p>Add your brief introduction paragraph here. This is where you can share your background, expertise, and what makes you unique. Keep it concise and engaging.</p>
@@ -343,17 +318,11 @@
     <h3>Resume</h3>
 
     <div class="pdf-frame" aria-label="Resume preview">
-      <iframe
-        src="EP_Simmons_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=page-width"
-        title="Resume PDF"
-        width="100%"
-        height="100%"
-        style="border:0;"
-      ></iframe>
+      [Your Resume PDF will display here]
     </div>
 
     <div class="actions">
-      <a class="button" href="EP_Simmons_Resume.pdf" download>
+      <a class="button" href="#" onclick="alert('Download your resume PDF'); return false;">
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
           <polyline points="7 10 12 15 17 10"/>
@@ -369,13 +338,7 @@
     <h3>Portfolio</h3>
 
     <div class="pdf-frame" aria-label="Portfolio document preview">
-      <iframe
-        src="EP_Simmons_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=page-width"
-        title="Portfolio Document"
-        width="100%"
-        height="100%"
-        style="border:0;"
-      ></iframe>
+      [Your Portfolio Document will display here]
     </div>
   </section>
   </section>
@@ -393,25 +356,11 @@
         epsimmons14@gmail.com
       </a>
       
-      <a href="tel:8018194914" class="contact-button phone-button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-        </svg>
-        (801) 819-4914
-      </a>
-      
       <a href="https://www.linkedin.com/in/epsimmons" target="_blank" rel="noopener" class="contact-button linkedin-button">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
         </svg>
         Connect on LinkedIn
-      </a>
-      
-      <a href="https://app.joinhandshake.com/profiles/epsimmons" target="_blank" rel="noopener" class="contact-button handshake-button">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 3c-1.27 0-2.4.8-2.82 2h-3.43c-.45 0-.85.3-.98.73l-1.7 5.1c-.05.15-.07.3-.07.45v7.47c0 .69.56 1.25 1.25 1.25h15.5c.69 0 1.25-.56 1.25-1.25v-7.47c0-.15-.02-.3-.07-.45l-1.7-5.1c-.13-.43-.53-.73-.98-.73h-3.43c-.42-1.2-1.55-2-2.82-2zm0 1.5c.69 0 1.25.56 1.25 1.25s-.56 1.25-1.25 1.25-1.25-.56-1.25-1.25.56-1.25 1.25-1.25zm-5.5 3h11l1.35 4.05h-2.6c-.35 0-.67.18-.85.48l-.75 1.22h-4.3l-.75-1.22c-.18-.3-.5-.48-.85-.48h-2.6zm1.25 5.75h1.88l.75 1.22c.18.3.5.48.85.48h3.54c.35 0 .67-.18.85-.48l.75-1.22h1.88v4.5h-10.5z"/>
-        </svg>
-        View Handshake Profile
       </a>
     </div>
   </section>
